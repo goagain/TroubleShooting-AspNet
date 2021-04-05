@@ -14,19 +14,19 @@ namespace TroubleShooting_AspNet.Models
     {
         public int ID { get; set; }
 
-        public int stars { get; set; }
-        public string comment { get; set; }
+        public int Stars { get; set; }
+        public string Comment { get; set; }
 
-        public string firstName { get; set; }
+        public string FirstName { get; set; }
         
-        public string lastName { get; set; }
+        public string LastName { get; set; }
 
-        public string phoneNumber { get; set; }
+        public string PhoneNumber { get; set; }
 
-        public string postcode { get; set; }
+        public string Postcode { get; set; }
 
         [DataType(DataType.Date)]
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
     }
 }

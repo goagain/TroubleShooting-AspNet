@@ -13,7 +13,7 @@ namespace TroubleShooting_AspNet
         {
 
         }
-        public DbSet<AssistanceRequest> assistanceRequest { get; set; }
+        public DbSet<AssistanceRequest> AssistanceRequest { get; set; }
         public DbSet<Feedback> Feedback { get; set; }
         public DbSet<User> Users { get; set; }
 

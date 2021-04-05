@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TroubleShooting_AspNet.Models;
 
-namespace TroubleShooting_AspNet
+namespace TroubleShooting_AspNet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -24,14 +24,14 @@ namespace TroubleShooting_AspNet
         [HttpGet]
         public async Task<ActionResult<IEnumerable<AssistanceRequest>>> GetassistanceRequest()
         {
-            return await _context.assistanceRequest.ToListAsync();
+            return await _context.AssistanceRequest.ToListAsync();
         }
 
         // GET: api/AssistanceRequests/5
         [HttpGet("{id}")]
         public async Task<ActionResult<AssistanceRequest>> GetAssistanceRequest(int id)
         {
-            var assistanceRequest = await _context.assistanceRequest.FindAsync(id);
+            var assistanceRequest = await _context.AssistanceRequest.FindAsync(id);
 
             if (assistanceRequest == null)
             {
@@ -77,10 +77,10 @@ namespace TroubleShooting_AspNet
         [HttpPost]
         public async Task<ActionResult<AssistanceRequest>> PostAssistanceRequest(AssistanceRequest assistanceRequest)
         {
-            assistanceRequest.date = DateTime.UtcNow;
-            assistanceRequest.state = AssistanceRequest.State.Received;
+            assistanceRequest.Date = DateTime.UtcNow;
+            assistanceRequest.State = AssistanceRequestState.Received;
 
-            _context.assistanceRequest.Add(assistanceRequest);
+            _context.AssistanceRequest.Add(assistanceRequest);
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetAssistanceRequest", new { id = assistanceRequest.ID }, assistanceRequest);
@@ -90,13 +90,13 @@ namespace TroubleShooting_AspNet
         [HttpDelete("{id}")]
         public async Task<IActionResult> DeleteAssistanceRequest(int id)
         {
-            var assistanceRequest = await _context.assistanceRequest.FindAsync(id);
+            var assistanceRequest = await _context.AssistanceRequest.FindAsync(id);
             if (assistanceRequest == null)
             {
                 return NotFound();
             }
 
-            _context.assistanceRequest.Remove(assistanceRequest);
+            _context.AssistanceRequest.Remove(assistanceRequest);
             await _context.SaveChangesAsync();
 
             return NoContent();
@@ -104,7 +104,7 @@ namespace TroubleShooting_AspNet
 
         private bool AssistanceRequestExists(int id)
         {
-            return _context.assistanceRequest.Any(e => e.ID == id);
+            return _context.AssistanceRequest.Any(e => e.ID == id);
         }
     }
 }

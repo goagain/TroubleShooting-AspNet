@@ -1,11 +1,8 @@
 {
   "dependencies": {
     "secrets1": {
-      "type": "secrets"
-    },
-    "mssql1": {
-      "type": "mssql",
-      "connectionId": "localhost:5552"
+      "type": "secrets",
+      "connectionId": "VaultUri"
     },
     "mssql2": {
       "type": "mssql",

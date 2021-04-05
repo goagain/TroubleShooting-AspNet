@@ -17,9 +17,9 @@ namespace TroubleShooting_AspNet.Models
 
         public long ID { get; set; }
         
-        public string username { get; set; }
+        public string Username { get; set; }
 
-        public string hashed_password { get; set; }
+        public string Hashed_password { get; set; }
 
         [EnumDataType(typeof(UserAccess))]
         public UserAccess access { get; set; }

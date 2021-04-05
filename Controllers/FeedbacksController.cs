@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using TroubleShooting_AspNet.Models;
 
-namespace TroubleShooting_AspNet
+namespace TroubleShooting_AspNet.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -77,7 +77,7 @@ namespace TroubleShooting_AspNet
         [HttpPost]
         public async Task<ActionResult<Feedback>> PostFeedback(Feedback feedback)
         {
-            feedback.date = DateTime.UtcNow;
+            feedback.Date = DateTime.UtcNow;
 
             _context.Feedback.Add(feedback);
             await _context.SaveChangesAsync();

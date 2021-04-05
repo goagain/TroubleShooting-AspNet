@@ -3,11 +3,6 @@
     "secrets1": {
       "type": "secrets.user"
     },
-    "mssql1": {
-      "type": "mssql.onprem",
-      "connectionId": "localhost:5552",
-      "secretStore": "LocalSecretsFile"
-    },
     "mssql2": {
       "resourceId": null,
       "type": "mssql.local",

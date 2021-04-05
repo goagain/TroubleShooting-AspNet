@@ -7,18 +7,18 @@ using System.Threading.Tasks;
 
 namespace TroubleShooting_AspNet.Models
 {
+    public enum AssistanceRequestState
+    {
+        Received = 0,
+        Processing = 1,
+        Solved = 2,
+        Rejected = 3,
+    }
     /// <summary>
     /// Data structure of AssistanceRequest
     /// </summary>
     public class AssistanceRequest
     {
-        public enum State
-        {
-            Received = 0,
-            Processing = 1,
-            Solved = 2,
-            Rejected = 3,
-        }
         public int ID { get; set; }
 
         public string Name { get; set; }
@@ -31,10 +31,10 @@ namespace TroubleShooting_AspNet.Models
 
 
         [DataType(DataType.Date)]
-        public DateTime date { get; set; }
+        public DateTime Date { get; set; }
 
-        [EnumDataType(typeof(State))]
-        public State state { get; set; }
+        [EnumDataType(typeof(AssistanceRequestState))]
+        public AssistanceRequestState State { get; set; }
 
     }
 }
