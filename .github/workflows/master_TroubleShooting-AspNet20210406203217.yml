@@ -51,7 +51,7 @@ jobs:
       id: deploy-to-webapp
       uses: azure/webapps-deploy@v2
       with:
-        app-name: 'TroubleShooting-AspNet20210406203217'
+        app-name: 'TroubleShooting-AspNet20210407020437'
         slot-name: 'production'
         publish-profile: ${{ secrets.AzureAppService_PublishProfile_3141dc5147e042da8e691d7e227bb782 }}
         package: .
