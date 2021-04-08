@@ -11,7 +11,6 @@ namespace TroubleShooting_AspNet
     {
         public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options)
         {
-
         }
         public DbSet<AssistanceRequest> AssistanceRequest { get; set; }
         public DbSet<Feedback> Feedback { get; set; }

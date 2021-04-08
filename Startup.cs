@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using System;
 using TroubleShooting_AspNet.Models;
 
 namespace TroubleShooting_AspNet
@@ -30,8 +31,10 @@ namespace TroubleShooting_AspNet
             });
 
             services.AddDbContext<ApplicationDbContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("TroubleShootingContext"))
-            );
+            {
+                Console.Out.WriteLine(Configuration.GetConnectionString("TroubleShootingContext"));
+                options.UseSqlServer(Configuration.GetConnectionString("TroubleShootingContext"));
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

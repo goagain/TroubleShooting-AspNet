@@ -1,0 +1,19 @@
+version: "3.9"
+
+services:
+  troubleshooting-aspnet:
+    image: ${DOCKER_REGISTRY-}troubleshootingaspnet
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      "ConnectionStrings:TroubleShootingContext": "Server=db;Database=master;User=sa;Password=uhfsa89N@11fafsd;"
+    ports:
+      - "9980:80"
+    depends_on:
+      - db
+  db:
+    image: mcr.microsoft.com/mssql/server
+    environment:
+      SA_PASSWORD: "uhfsa89N@11fafsd"
+      ACCEPT_EULA: "Y"
